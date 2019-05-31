@@ -54,8 +54,10 @@ export const pageQuery = graphql`
           subtitle
           author
           slug
-          content{
-            content
+          content {
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }

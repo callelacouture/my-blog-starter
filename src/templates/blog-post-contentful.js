@@ -30,7 +30,7 @@ class BlogPostContentfulTemplate extends React.Component {
         >
          {post.subtitle}
         </p>
-        <p>{post.content.content}</p>
+        <p dangerouslySetInnerHTML={{__html:post.content.childMarkdownRemark.html}}></p>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -81,8 +81,10 @@ export const pageQuery = graphql`
       title
       subtitle
       author
-      content{
-        content
+      content {
+        childMarkdownRemark {
+          html
+        }
       }
       image{
         fluid{
