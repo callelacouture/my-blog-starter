@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="Water" />
         {posts.map(({ node }) => {
           const title = node.title || node.slug
           return (
@@ -47,6 +47,11 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPost(
+      filter:{
+        category:{
+          in:["Water"]
+        }
+      }
       sort: {
         fields: publishDate
         order: DESC
